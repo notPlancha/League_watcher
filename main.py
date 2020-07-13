@@ -1,3 +1,14 @@
+#You gotta download a chrome driver here: https://sites.google.com/a/chromium.org/chromedriver/downloads
+#I did it with ChromeDriver 84.0.4147.30, but it should work with any
+#Also you need install selenium (https://pypi.org/project/selenium/)
+#If you need anything else, need help, have suggestions or feedback or just wanna talk, hit me up
+#Discord: notPlancha#1634, Reddit:u/notPlancha, Twiiter: @notplancha, email:notPlancha@gmail.com
+#Idk how github really works, so if you really need something I recommend you message me anywhere else.
+#One last thing. If there's a new champion, just add it to the list anywhere
+webdriver_path = "write here your webdriver path here" #Example: "C:/Users/me/Desktop/chromedriver.exe"
+champions = ['aatrox', 'ahri', 'akali', 'alistar', 'amumu', 'anivia', 'annie', 'aphelios', 'ashe', 'aurelion sol', 'azir', 'bard', 'blitzcrank', 'brand', 'braum', 'caitlyn', 'camille', 'cassiopeia', "cho'gath", 'corki', 'darius', 'diana', 'dr. mundo', 'draven', 'ekko', 'elise', 'evelynn', 'ezreal', 'fiddlesticks', 'fiora', 'fizz', 'galio', 'gangplank', 'garen', 'gnar', 'gragas', 'graves', 'hecarim', 'heimerdinger', 'illaoi', 'irelia', 'ivern', 'janna', 'jarvan iv', 'jax', 'jayce', 'jhin', 'jinx', "kai'sa", 'kalista', 'karma', 'karthus', 'kassadin', 'katarina', 'kayle', 'kayn', 'kennen', "kha'zix", 'kindred', 'kled', "kog'maw", 'leblanc', 'lee sin', 'leona', 'lillia', 'lissandra', 'lucian', 'lulu', 'lux', 'malphite', 'malzahar', 'maokai', 'master yi', 'miss fortune', 'mordekaiser', 'morgana', 'nami', 'nasus', 'nautilus', 'neeko', 'nidalee', 'nocturne', 'nunu', 'olaf', 'orianna', 'ornn', 'pantheon', 'poppy', 'pyke', 'qiyana', 'quinn', 'rakan', 'rammus', "rek'sai", 'renekton', 'rengar', 'riven', 'rumble', 'ryze', 'sejuani', 'senna', 'sett', 'shaco', 'shen', 'shyvana', 'singed', 'sion', 'sivir', 'skarner', 'sona', 'soraka', 'swain', 'sylas', 'syndra', 'tahm kench', 'taliyah', 'talon', 'taric', 'teemo', 'thresh', 'tristana', 'trundle', 'tryndamere', 'twisted fate', 'twitch', 'udyr', 'urgot', 'varus', 'vayne', 'veigar', "vel'koz", 'vi', 'viktor', 'vladimir', 'volibear', 'warwick', 'wukong', 'xayah', 'xerath', 'xin zhao', 'yasuo', 'yorick', 'yuumi', 'zac', 'zed', 'ziggs', 'zilean', 'zoe', 'zyra']
+
+
 from tkinter import *
 import time
 
@@ -41,14 +52,12 @@ def wait_to_click(element, shutdown_time):
 #start driver
 chrome_options = Options()
 chrome_options.add_argument("--headless")
-webdriver_path = "C:/Users/Andre/Desktop/python/files/chromedriver.exe"
 driver = webdriver.Chrome(executable_path= webdriver_path, options= chrome_options)
 driver.maximize_window()
 
 #driver.get("https://leagueoflegends.fandom.com/wiki/List_of_champions")
 #champion_xpath = "//table[@class='wikitable sortable jquery-tablesorter']//tbody//*[contains(@style, 'text-align:left;')]"
 #champion_elements_list = driver.find_elements_by_xpath(champion_xpath)
-champions = ['aatrox', 'ahri', 'akali', 'alistar', 'amumu', 'anivia', 'annie', 'aphelios', 'ashe', 'aurelion sol', 'azir', 'bard', 'blitzcrank', 'brand', 'braum', 'caitlyn', 'camille', 'cassiopeia', "cho'gath", 'corki', 'darius', 'diana', 'dr. mundo', 'draven', 'ekko', 'elise', 'evelynn', 'ezreal', 'fiddlesticks', 'fiora', 'fizz', 'galio', 'gangplank', 'garen', 'gnar', 'gragas', 'graves', 'hecarim', 'heimerdinger', 'illaoi', 'irelia', 'ivern', 'janna', 'jarvan iv', 'jax', 'jayce', 'jhin', 'jinx', "kai'sa", 'kalista', 'karma', 'karthus', 'kassadin', 'katarina', 'kayle', 'kayn', 'kennen', "kha'zix", 'kindred', 'kled', "kog'maw", 'leblanc', 'lee sin', 'leona', 'lillia', 'lissandra', 'lucian', 'lulu', 'lux', 'malphite', 'malzahar', 'maokai', 'master yi', 'miss fortune', 'mordekaiser', 'morgana', 'nami', 'nasus', 'nautilus', 'neeko', 'nidalee', 'nocturne', 'nunu', 'olaf', 'orianna', 'ornn', 'pantheon', 'poppy', 'pyke', 'qiyana', 'quinn', 'rakan', 'rammus', "rek'sai", 'renekton', 'rengar', 'riven', 'rumble', 'ryze', 'sejuani', 'senna', 'sett', 'shaco', 'shen', 'shyvana', 'singed', 'sion', 'sivir', 'skarner', 'sona', 'soraka', 'swain', 'sylas', 'syndra', 'tahm kench', 'taliyah', 'talon', 'taric', 'teemo', 'thresh', 'tristana', 'trundle', 'tryndamere', 'twisted fate', 'twitch', 'udyr', 'urgot', 'varus', 'vayne', 'veigar', "vel'koz", 'vi', 'viktor', 'vladimir', 'volibear', 'warwick', 'wukong', 'xayah', 'xerath', 'xin zhao', 'yasuo', 'yorick', 'yuumi', 'zac', 'zed', 'ziggs', 'zilean', 'zoe', 'zyra']
 #for i in champion_elements_list:
 #    champions.append((i.get_attribute("data-sort-value")).lower())
 champion = False
