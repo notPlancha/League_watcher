@@ -60,24 +60,27 @@ driver.maximize_window()
 #champion_elements_list = driver.find_elements_by_xpath(champion_xpath)
 #for i in champion_elements_list:
 #    champions.append((i.get_attribute("data-sort-value")).lower())
-champion = False
-while champion == False:
-    championEntry = Tk()
-    champion = Entry(championEntry, borderwidth=2)
-    champion.pack()
-    button_clicked = False
-    def close(event):
-        global button_clicked
-        button_clicked = True
-    button = Button(championEntry, text="submit", command=close).pack()
-    championEntry.bind('<Return>', close)
+championEntry = Tk()
+champion = Entry(championEntry, borderwidth=2)
+champion.pack()
+button_clicked = False
+def close(event):
+    global button_clicked
+    button_clicked = True
+button = Button(championEntry, text="submit", command=close).pack()
+champion_input = False
+
+championEntry.bind('<Return>', close)
+while champion_input == False:
     while not button_clicked:
         championEntry.update()
-    champion = champion.get()
-    if champion.lower() not in champions:
-        champion = True
+    champion_input = champion.get()
+    if champion_input.lower() not in champions:
+        champion_input = False
+        button_clicked = False
         Label(championEntry, text="Please enter valid champion").pack()
     else:
+        champion = champion_input
         championEntry.destroy()
 root = Tk()
 def removespaces(string):
