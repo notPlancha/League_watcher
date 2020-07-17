@@ -13,7 +13,7 @@ from tkinter import *
 import time
 
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException, ElementNotInteractableException
+from selenium.common.exceptions import NoSuchElementException, ElementNotInteractableException, TimeoutException
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -24,7 +24,7 @@ def wait_for_element(driver, max_time_waiting, xpath):
     try:
         element = WebDriverWait(driver, max_time_waiting).until(cond.presence_of_element_located((By.XPATH, xpath)))
         return element
-    except NoSuchElementException:
+    except (NoSuchElementException, TimeoutException):
         return None
 
 def check_exists_by_xpath(driver, xpath):
@@ -154,10 +154,10 @@ xpaths = {
         #"tierlist":"//span[contains(text(),'LoL Tier List')]",
     },
     "lolalytics": {
-        "winrate": "/html[1]/body[1]/div[1]/div[3]/div[4]/div[4]/div[1]",
-        "pickrate":"/html[1]/body[1]/div[1]/div[3]/div[4]/div[4]/div[4]",
-        "banrate": "/html[1]/body[1]/div[1]/div[3]/div[4]/div[4]/div[5]",
-        "matches": "/html[1]/body[1]/div[1]/div[3]/div[4]/div[4]/div[6]",
+        "winrate": "/html[1]/body[1]/div[1]/div[1]/div[3]/div[2]/div[4]/div[4]/div[1]",
+        "pickrate":"/html[1]/body[1]/div[1]/div[1]/div[3]/div[2]/div[4]/div[4]/div[4]",
+        "banrate": "/html[1]/body[1]/div[1]/div[1]/div[3]/div[2]/div[4]/div[4]/div[5]",
+        "matches": "/html[1]/body[1]/div[1]/div[1]/div[3]/div[2]/div[4]/div[4]/div[6]",
     },
     "leagueofgraphs":{
         "winrate": "/html[1]/body[1]/div[2]/div[3]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]",
