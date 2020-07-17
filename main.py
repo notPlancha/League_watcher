@@ -64,13 +64,14 @@ championEntry = Tk()
 champion = Entry(championEntry, borderwidth=2)
 champion.pack()
 button_clicked = False
-def close(event):
+def close():
     global button_clicked
     button_clicked = True
+def closetwo(event):
+    close()
 button = Button(championEntry, text="submit", command=close).pack()
 champion_input = False
-
-championEntry.bind('<Return>', close)
+championEntry.bind('<Return>', closetwo)
 while champion_input == False:
     while not button_clicked:
         championEntry.update()
